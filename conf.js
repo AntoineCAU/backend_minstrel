@@ -1,14 +1,8 @@
 const mysql = require('mysql2/promise');
 require('dotenv').config();
 
-const {
-  DB_HOST,
-  DB_USER,
-  DB_SCHEMA,
-  DB_PASSWORD,
-  BACK_PORT,
-  FRONTEND_URL,
-} = process.env;
+const { DB_HOST, DB_USER, DB_SCHEMA, DB_PASSWORD, BACK_PORT, FRONTEND_URL } =
+  process.env;
 
 const db = mysql.createPool({
   connectionLimit: 10,
@@ -21,8 +15,5 @@ const db = mysql.createPool({
 module.exports = {
   db,
   backPort: BACK_PORT,
-  jwtrounds: parseInt(JWT_SALTROUNDS, 10),
-  jwtsecret: JWT_SECRET,
   frontendUrl: FRONTEND_URL,
-
 };
